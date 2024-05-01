@@ -10,6 +10,8 @@ github.com/RomiChan/syncx v0.0.0-20221202055724-5f842c53020e h1:wR3MXQ3VbUlPKOOU
 github.com/RomiChan/syncx v0.0.0-20221202055724-5f842c53020e/go.mod h1:vD7Ra3Q9onRtojoY5sMCLQ7JBgjUsrXDnDKyFxqpf9w=
 github.com/Sclock/MiraiGo v1.0.0 h1:F+zqJzRPe8l3kzGnixjmopsqIIk0E3YZWL8QryEadI0=
 github.com/Sclock/MiraiGo v1.0.0/go.mod h1:na73mSHPdS2dSi+DRwxhbCeQJIa1Ih5rhrfcAmuI4yg=
+github.com/Sclock/MiraiGo v1.1.0 h1:KotVhSQxqY9NQATP+20hdMxMuVH1pKXsAnL/XVv21wI=
+github.com/Sclock/MiraiGo v1.1.0/go.mod h1:na73mSHPdS2dSi+DRwxhbCeQJIa1Ih5rhrfcAmuI4yg=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
