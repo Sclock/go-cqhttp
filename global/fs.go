@@ -70,6 +70,13 @@ func Check(err error, deleteSession bool) {
 	}
 }
 
+// Check 检测err是否为nil,但并不结束程序
+func CheckWarn(err error, deleteSession bool) {
+	if err != nil {
+		log.Warnf("遇到错误: %v", err)
+	}
+}
+
 // IsAMRorSILK 判断给定文件是否为Amr或Silk格式
 func IsAMRorSILK(b []byte) bool {
 	return bytes.HasPrefix(b, []byte(HeaderAmr)) || bytes.HasPrefix(b, []byte(HeaderSilk))
