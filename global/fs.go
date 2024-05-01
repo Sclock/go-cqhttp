@@ -70,7 +70,7 @@ func Check(err error, deleteSession bool) {
 	}
 }
 
-// Check 检测err是否为nil,但并不结束程序
+// CheckWarn 检测err是否为nil,但并不结束程序
 func CheckWarn(err error) {
 	if err != nil {
 		log.Warnf("遇到错误: %v", err)
