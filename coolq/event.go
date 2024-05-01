@@ -153,9 +153,8 @@ func (bot *CQBot) tempMessageEvent(_ *client.QQClient, e *client.TempMessageEven
 	// if bot.db != nil { // nolint
 	// 		id = bot.InsertTempMessage(m.Sender.Uin, m)
 	// }
-	switch e.Session.Source {
-	// 企点临时会话
-	case 9:
+	if e.Session.Source == 9 {
+		// 企点临时会话
 		log.Infof("收到来自企点 %v(%v) 的临时会话消息: %v", m.Sender.DisplayName(), m.Sender.Uin, cqm)
 		tm := global.MSG{
 			"temp_source": e.Session.Source,
@@ -173,7 +172,8 @@ func (bot *CQBot) tempMessageEvent(_ *client.QQClient, e *client.TempMessageEven
 			},
 		}
 		bot.dispatchEvent("message/private/qidiantemp", tm)
-	default:
+	} else {
+		// 普通群临时会话
 		log.Infof("收到来自群 %v(%v) 内 %v(%v) 的临时会话消息: %v", m.GroupName, m.GroupCode, m.Sender.DisplayName(), m.Sender.Uin, cqm)
 		tm := global.MSG{
 			"temp_source": e.Session.Source,
