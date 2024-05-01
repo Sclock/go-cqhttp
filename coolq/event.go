@@ -153,23 +153,45 @@ func (bot *CQBot) tempMessageEvent(_ *client.QQClient, e *client.TempMessageEven
 	// if bot.db != nil { // nolint
 	// 		id = bot.InsertTempMessage(m.Sender.Uin, m)
 	// }
-	log.Infof("收到来自群 %v(%v) 内 %v(%v) 的临时会话消息: %v", m.GroupName, m.GroupCode, m.Sender.DisplayName(), m.Sender.Uin, cqm)
-	tm := global.MSG{
-		"temp_source": e.Session.Source,
-		"message_id":  id,
-		"user_id":     m.Sender.Uin,
-		"message":     ToFormattedMessage(m.Elements, source),
-		"raw_message": cqm,
-		"font":        0,
-		"sender": global.MSG{
-			"user_id":  m.Sender.Uin,
-			"group_id": m.GroupCode,
-			"nickname": m.Sender.Nickname,
-			"sex":      "unknown",
-			"age":      0,
-		},
+	switch e.Session.Source {
+	// 企点临时会话
+	case 9:
+		log.Infof("收到来自企点 %v(%v) 的临时会话消息: %v", m.Sender.DisplayName(), m.Sender.Uin, cqm)
+		tm := global.MSG{
+			"temp_source": e.Session.Source,
+			"message_id":  id,
+			"group_id":    e.Session.GroupCode,
+			"user_id":     m.Sender.Uin,
+			"message":     ToFormattedMessage(m.Elements, source),
+			"raw_message": cqm,
+			"font":        0,
+			"sender": global.MSG{
+				"user_id":  m.Sender.Uin,
+				"nickname": m.Sender.Nickname,
+				"sex":      "unknown",
+				"age":      0,
+			},
+		}
+		bot.dispatchEvent("message/private/qidiantemp", tm)
+	default:
+		log.Infof("收到来自群 %v(%v) 内 %v(%v) 的临时会话消息: %v", m.GroupName, m.GroupCode, m.Sender.DisplayName(), m.Sender.Uin, cqm)
+		tm := global.MSG{
+			"temp_source": e.Session.Source,
+			"message_id":  id,
+			"user_id":     m.Sender.Uin,
+			"message":     ToFormattedMessage(m.Elements, source),
+			"raw_message": cqm,
+			"font":        0,
+			"sender": global.MSG{
+				"user_id":  m.Sender.Uin,
+				"group_id": m.GroupCode,
+				"nickname": m.Sender.Nickname,
+				"sex":      "unknown",
+				"age":      0,
+			},
+		}
+		bot.dispatchEvent("message/private/group", tm)
 	}
-	bot.dispatchEvent("message/private/group", tm)
 }
 
 func (bot *CQBot) guildChannelMessageEvent(c *client.QQClient, m *message.GuildChannelMessage) {

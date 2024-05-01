@@ -730,6 +730,34 @@ func (bot *CQBot) CQSendForwardMessage(groupID, userID int64, m gjson.Result, me
 	return global.MSG{}
 }
 
+// CQSendQidianTempMessage 发送企点临时消息
+//
+// https://git.io/Jtz1c
+// @route11(send_qidian_msg)
+// @rename(m->message)
+func (bot *CQBot) CQSendQidianTempMessage(userID int64, groupID int64, m gjson.Result, autoEscape bool) global.MSG {
+	var elem []message.IMessageElement
+	if m.Type == gjson.JSON {
+		elem = bot.ConvertObjectMessage(onebot.V11, m, message.SourcePrivate)
+	} else {
+		str := m.String()
+		if str == "" {
+			return Failed(100, "EMPTY_MSG_ERROR", "消息为空")
+		}
+		if autoEscape {
+			elem = []message.IMessageElement{message.NewText(str)}
+		} else {
+			elem = bot.ConvertStringMessage(onebot.V11, str, message.SourcePrivate)
+		}
+	}
+	mid := bot.SendPrivateMessage(userID, groupID, &message.SendingMessage{Elements: elem})
+	if mid == -1 {
+		return Failed(100, "SEND_MSG_API_ERROR", "请参考 go-cqhttp 端输出")
+	}
+	log.Infof("发送企点临时消息 %v(%v)  的消息: %v (%v)", userID, userID, limitedString(m.String()), mid)
+	return OK(global.MSG{"message_id": mid})
+}
+
 // CQSendGroupMessage 发送群消息
 //
 // https://git.io/Jtz1c
