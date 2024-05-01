@@ -374,10 +374,10 @@ func (bot *CQBot) SendPrivateMessage(target int64, groupID int64, m *message.Sen
 		default:
 			if session == nil && groupID != 0 {
 				msg := bot.Client.SendGroupTempMessage(groupID, target, m)
-				//lint:ignore SA9003 there is a todo
 				if msg != nil { // nolint
 					// todo(Mrs4s)
 					// id = bot.InsertTempMessage(target, msg)
+					id = msg.Id
 				}
 				break
 			}
@@ -386,11 +386,16 @@ func (bot *CQBot) SendPrivateMessage(target int64, groupID int64, m *message.Sen
 				log.Errorf("发送临时会话消息失败: %v", err)
 				break
 			}
-			//lint:ignore SA9003 there is a todo
 			if msg != nil { // nolint
 				// todo(Mrs4s)
 				// id = bot.InsertTempMessage(target, msg)
+				id = msg.Id
 			}
+		}
+	case bot.Client.FindFriend(target) != nil || bot.Client.QiDian != nil: // 双向好友或企点
+		msg := bot.Client.SendPrivateMessage(target, m)
+		if msg != nil {
+			id = bot.InsertPrivateMessage(msg, source)
 		}
 	case unidirectionalFriendExists(): // 单向好友
 		msg := bot.Client.SendPrivateMessage(target, m)
