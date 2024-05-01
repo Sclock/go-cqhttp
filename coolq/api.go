@@ -700,6 +700,8 @@ func (bot *CQBot) CQGetWordSlices(content string) global.MSG {
 // @rename(m->message)
 func (bot *CQBot) CQSendMessage(groupID, userID int64, m gjson.Result, messageType string, autoEscape bool) global.MSG {
 	switch {
+	case messageType == "qidian":
+		return bot.CQSendQidianTempMessage(userID, groupID, m, autoEscape)
 	case messageType == "group":
 		return bot.CQSendGroupMessage(groupID, m, autoEscape)
 	case messageType == "private":
