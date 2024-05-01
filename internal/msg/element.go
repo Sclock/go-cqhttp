@@ -6,7 +6,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/Mrs4s/MiraiGo/binary"
+	"github.com/Sclock/MiraiGo/binary"
 )
 
 // @@@ CQ码转义处理 @@@

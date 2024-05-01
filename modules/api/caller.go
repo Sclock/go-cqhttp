@@ -4,9 +4,9 @@ package api
 import (
 	"github.com/tidwall/gjson"
 
-	"github.com/Mrs4s/go-cqhttp/coolq"
-	"github.com/Mrs4s/go-cqhttp/global"
-	"github.com/Mrs4s/go-cqhttp/pkg/onebot"
+	"github.com/Sclock/go-cqhttp/coolq"
+	"github.com/Sclock/go-cqhttp/global"
+	"github.com/Sclock/go-cqhttp/pkg/onebot"
 )
 
 //go:generate go run ./../../cmd/api-generator -pkg api -path=./../../coolq/api.go,./../../coolq/api_v12.go -o api.go

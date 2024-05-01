@@ -14,10 +14,10 @@ import (
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v3"
 
-	"github.com/Mrs4s/MiraiGo/binary"
-	"github.com/Mrs4s/MiraiGo/utils"
+	"github.com/Sclock/MiraiGo/binary"
+	"github.com/Sclock/MiraiGo/utils"
 
-	"github.com/Mrs4s/go-cqhttp/db"
+	"github.com/Sclock/go-cqhttp/db"
 )
 
 type database struct {

@@ -11,9 +11,9 @@ import (
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v3"
 
-	"github.com/Mrs4s/go-cqhttp/coolq"
-	"github.com/Mrs4s/go-cqhttp/modules/config"
-	"github.com/Mrs4s/go-cqhttp/modules/servers"
+	"github.com/Sclock/go-cqhttp/coolq"
+	"github.com/Sclock/go-cqhttp/modules/config"
+	"github.com/Sclock/go-cqhttp/modules/servers"
 )
 
 const pprofDefault = `  # pprof 性能分析服务器, 一般情况下不需要启用.

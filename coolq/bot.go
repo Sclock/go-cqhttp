@@ -12,22 +12,22 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Mrs4s/MiraiGo/binary"
-	"github.com/Mrs4s/MiraiGo/client"
-	"github.com/Mrs4s/MiraiGo/message"
-	"github.com/Mrs4s/MiraiGo/utils"
 	"github.com/RomiChan/syncx"
+	"github.com/Sclock/MiraiGo/binary"
+	"github.com/Sclock/MiraiGo/client"
+	"github.com/Sclock/MiraiGo/message"
+	"github.com/Sclock/MiraiGo/utils"
 	"github.com/pkg/errors"
 	"github.com/segmentio/asm/base64"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/image/webp"
 
-	"github.com/Mrs4s/go-cqhttp/db"
-	"github.com/Mrs4s/go-cqhttp/global"
-	"github.com/Mrs4s/go-cqhttp/internal/base"
-	"github.com/Mrs4s/go-cqhttp/internal/mime"
-	"github.com/Mrs4s/go-cqhttp/internal/msg"
-	"github.com/Mrs4s/go-cqhttp/pkg/onebot"
+	"github.com/Sclock/go-cqhttp/db"
+	"github.com/Sclock/go-cqhttp/global"
+	"github.com/Sclock/go-cqhttp/internal/base"
+	"github.com/Sclock/go-cqhttp/internal/mime"
+	"github.com/Sclock/go-cqhttp/internal/msg"
+	"github.com/Sclock/go-cqhttp/pkg/onebot"
 )
 
 // CQBot CQBot结构体,存储Bot实例相关配置
