@@ -6,7 +6,7 @@ require (
 	github.com/FloatTech/sqlite v1.6.3
 	github.com/Microsoft/go-winio v0.6.2-0.20230724192519-b29bbd58a65a
 	github.com/RomiChan/syncx v0.0.0-20221202055724-5f842c53020e
-	github.com/Sclock/MiraiGo v1.1.0
+	github.com/Sclock/MiraiGo v1.2.1
 	github.com/fumiama/go-base16384 v1.7.0
 	github.com/fumiama/go-hide-param v0.1.4
 	github.com/gorilla/websocket v1.5.1
