@@ -12,11 +12,10 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/Sclock/MiraiGo/utils"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/tidwall/gjson"
-
-	"github.com/Sclock/MiraiGo/utils"
 
 	"github.com/Sclock/go-cqhttp/global"
 	"github.com/Sclock/go-cqhttp/internal/base"
@@ -73,10 +72,11 @@ func getAvaliableSignServer() (*config.SignServer, error) {
 	} else if errn.hasOver(uintptr(maxCount)) {
 		log.Fatalf("获取可用签名服务器失败次数超过 %v 次, 正在离线", maxCount)
 	}
+
+	cs = asyncCheckServer(base.SignServers)
 	if cs != nil && len(cs.URL) > 0 {
 		log.Warnf("当前签名服务器 %v 不可用，正在查找可用服务器", cs.URL)
 	}
-	cs = asyncCheckServer(base.SignServers)
 	if cs == nil {
 		return nil, errors.New("no usable sign server")
 	}
