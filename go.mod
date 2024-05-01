@@ -6,9 +6,10 @@ require (
 	github.com/FloatTech/sqlite v1.6.3
 	github.com/Microsoft/go-winio v0.6.2-0.20230724192519-b29bbd58a65a
 	github.com/RomiChan/syncx v0.0.0-20221202055724-5f842c53020e
-	github.com/RomiChan/websocket v1.4.3-0.20220227141055-9b2c6168c9c5
+	github.com/Sclock/MiraiGo v1.0.0
 	github.com/fumiama/go-base16384 v1.7.0
 	github.com/fumiama/go-hide-param v0.1.4
+	github.com/gorilla/websocket v1.5.1
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/mattn/go-colorable v0.1.13
 	github.com/pkg/errors v0.9.1
@@ -19,10 +20,10 @@ require (
 	github.com/tidwall/gjson v1.15.0
 	github.com/wdvxdr1123/go-silk v0.0.0-20210316130616-d47b553def60
 	go.mongodb.org/mongo-driver v1.12.0
-	golang.org/x/crypto v0.11.0
+	golang.org/x/crypto v0.14.0
 	golang.org/x/image v0.9.0
-	golang.org/x/sys v0.10.0
-	golang.org/x/term v0.10.0
+	golang.org/x/sys v0.13.0
+	golang.org/x/term v0.13.0
 	golang.org/x/time v0.3.0
 	gopkg.ilharper.com/x/isatty v1.1.1
 	gopkg.in/yaml.v3 v3.0.1
@@ -31,7 +32,6 @@ require (
 require (
 	github.com/FloatTech/ttl v0.0.0-20220715042055-15612be72f5b // indirect
 	github.com/RomiChan/protobuf v0.1.1-0.20230204044148-2ed269a2e54d // indirect
-	github.com/Sclock/MiraiGo v1.0.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fumiama/imgsz v0.0.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
@@ -53,8 +53,9 @@ require (
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
 	golang.org/x/mod v0.12.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/sync v0.3.0 // indirect
-	golang.org/x/text v0.11.0 // indirect
+	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/tools v0.11.0 // indirect
 	lukechampine.com/uint128 v1.2.0 // indirect
 	modernc.org/cc/v3 v3.40.0 // indirect
